@@ -17,16 +17,18 @@ data2 = df['Time Out']-df['Time']
 df2 = df.assign( Days = data,WorkHour = data2)
 
 
-
+# who has worked for 7 consecutive days.
 
 df3 = df2.sort_values('Days')==7
 
+print(df3)
 
-
-
+# Who has worked for more than 14 hours in a single shift
 df4 = df2.sort_values('WorkHour')==14
+
 print(df4)
 
+#  who have less than 10 hours of time between shifts but greater than 1 hour
 cond1 = df2.WorkHour > 1
 cond2 = df2.WorkHour< 10
 
